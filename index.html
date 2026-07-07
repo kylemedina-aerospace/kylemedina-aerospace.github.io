@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Kyle Medina</title>
+<meta name="description" content="Hi! I'm Kyle Medina, an Aerospace Engineering student at UCLA. This website showcases some of my projects and research.">
+<!-- Bootstrap + Font Awesome + fonts (same stack the Freelancer theme uses) -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Lato:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primary: #2774ae;      /* UCLA blue */
+    --secondary: #2c3e50;    /* dark navy (unchanged) */
+    --gold: #ffb81c;         /* UCLA gold */
+  }
+  body { font-family: "Lato", sans-serif; }
+  h1,h2,h3,h4,h5,.navbar-brand,.btn { font-family: "Montserrat", sans-serif; font-weight: 700; }
+
+  /* ---------- Navbar ---------- */
+  #mainNav { background-color: var(--secondary); padding: 1rem 0; }
+  #mainNav .navbar-brand { color: #fff; font-size: 1.5rem; text-transform: uppercase; }
+  #mainNav .nav-link {
+    color: #fff; text-transform: uppercase; font-family: "Montserrat", sans-serif;
+    font-weight: 700; font-size: 0.9rem; padding: 0.6rem 1rem; border-radius: 0.25rem;
+  }
+  #mainNav .nav-link:hover, #mainNav .nav-link:focus { background: var(--gold); color: var(--secondary); }
+
+  /* ---------- Masthead ---------- */
+  .masthead {
+    background-color: var(--primary);
+    color: #fff; text-align: center;
+    padding: 7rem 0 5rem;
+  }
+  .masthead .avatar {
+    width: 15rem; height: 15rem; border-radius: 50%;
+    object-fit: cover; margin-bottom: 2rem;
+    background: #fff;
+  }
+  /* Placeholder shown until you add a headshot — see the <img> comment below */
+  .avatar-placeholder {
+    width: 15rem; height: 15rem; border-radius: 50%; margin: 0 auto 2rem;
+    background: #fff; color: var(--primary);
+    display: flex; align-items: center; justify-content: center;
+    font-family: "Montserrat", sans-serif; font-weight: 700; font-size: 4rem;
+  }
+  .masthead h1 { font-size: 3rem; text-transform: uppercase; margin-bottom: 0; }
+  .masthead p.subtitle { font-size: 1.35rem; font-weight: 400; margin-top: 1.5rem; }
+
+  /* ---------- Star divider (signature Freelancer element) ---------- */
+  .divider-custom {
+    margin: 1.25rem 0; width: 100%;
+    display: flex; justify-content: center; align-items: center;
+  }
+  .divider-custom .divider-line {
+    width: 100%; max-width: 7rem; height: 0.25rem; background-color: currentColor; border-radius: 1rem;
+  }
+  .divider-custom .divider-icon { font-size: 2rem; margin: 0 1rem; }
+  .divider-light { color: #fff; }
+  .divider-light .divider-icon { color: var(--gold); }
+  .divider-dark { color: var(--secondary); }
+  .divider-dark .divider-icon { color: var(--primary); }
+
+  /* ---------- Sections ---------- */
+  .page-section { padding: 6rem 0; }
+  .page-section h2 {
+    font-size: 2.25rem; text-transform: uppercase; text-align: center; color: var(--secondary);
+  }
+  .page-section.bg-primary-custom { background: var(--primary); color: #fff; }
+  .page-section.bg-primary-custom h2 { color: #fff; }
+
+  /* ---------- Portfolio grid ---------- */
+  .portfolio-item {
+    cursor: pointer; position: relative; display: block;
+    border-radius: 0.5rem; overflow: hidden; margin-bottom: 1.5rem;
+  }
+  .portfolio-item img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; }
+  .portfolio-item .caption {
+    position: absolute; inset: 0;
+    background: rgba(39, 116, 174, 0.9);
+    display: flex; align-items: center; justify-content: center;
+    opacity: 0; transition: opacity 0.25s ease;
+  }
+  .portfolio-item:hover .caption, .portfolio-item:focus .caption { opacity: 1; }
+  .portfolio-item .caption i { color: #fff; font-size: 2.5rem; }
+  .portfolio-title { text-align: center; font-family: "Montserrat", sans-serif; font-weight: 700; color: var(--secondary); margin-bottom: 2rem; }
+  @media (prefers-reduced-motion: reduce) { .portfolio-item .caption { transition: none; } }
+
+  /* ---------- Modals ---------- */
+  .modal-header { border: none; }
+  .modal-title { text-transform: uppercase; color: var(--secondary); font-size: 1.75rem; width: 100%; text-align: center; }
+  .modal-body p { color: #6c757d; }
+  .btn-close-window { background: var(--secondary); border: none; }
+  .btn-close-window:hover { background: var(--primary); }
+  .carousel-inner img { width: 100%; border-radius: 0.25rem; }
+  .carousel-indicators [data-bs-target] { background-color: var(--secondary); }
+  .carousel-control-prev-icon, .carousel-control-next-icon { filter: invert(1) grayscale(100); }
+
+  /* ---------- Resume ---------- */
+  .resume-frame { width: 100%; height: 75vh; border: 1px solid #dee2e6; border-radius: 0.25rem; }
+
+  /* ---------- Contact + footer ---------- */
+  .contact-icon {
+    width: 4rem; height: 4rem; border-radius: 50%;
+    background: var(--secondary); color: #fff;
+    display: inline-flex; align-items: center; justify-content: center;
+    font-size: 1.5rem; margin: 0 0.4rem;
+  }
+  .contact-icon:hover { background: var(--primary); color: #fff; }
+  footer { background: var(--secondary); color: #fff; padding: 3rem 0; text-align: center; }
+  footer .small { opacity: 0.7; }
+  .btn-primary-custom {
+    background: var(--secondary); color: #fff; border: none;
+    padding: 0.9rem 1.75rem; text-transform: uppercase;
+  }
+  .btn-primary-custom:hover { background: var(--primary); color: #fff; }
+</style>
+</head>
+<body id="page-top">
+
+<!-- ========== NAV ========== -->
+<nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand" href="#page-top">Kyle Medina</a>
+    <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      Menu <i class="fas fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li>
+        <li class="nav-item"><a class="nav-link" href="#resume">Resume</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- ========== MASTHEAD ========== -->
+<header class="masthead">
+  <div class="container">
+    <!-- To use a headshot: delete the div below and un-comment the img line,
+         then upload your photo to the repo as assets/headshot.jpg -->
+    <div class="avatar-placeholder">KM</div>
+    <!-- <img class="avatar" src="assets/headshot.jpg" alt="Kyle Medina"> -->
+    <h1>Kyle Medina</h1>
+    <div class="divider-custom divider-light">
+      <div class="divider-line"></div>
+      <div class="divider-icon"><i class="fas fa-rocket"></i></div>
+      <div class="divider-line"></div>
+    </div>
+    <p class="subtitle mb-0">Aerospace Engineering Student — Builder</p>
+  </div>
+</header>
+
+<!-- ========== ABOUT ========== -->
+<section class="page-section bg-primary-custom" id="about">
+  <div class="container">
+    <h2>About</h2>
+    <div class="divider-custom divider-light">
+      <div class="divider-line"></div>
+      <div class="divider-icon"><i class="fas fa-star"></i></div>
+      <div class="divider-line"></div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-lg-9">
+        <p>Hi! I'm Kyle, a third-year Aerospace Engineering student at UCLA with a passion for hands-on design, fabrication, and applied research. This past summer, I worked as an undergraduate research assistant in the Cai Group at UC San Diego, developing hydrogel-based nanoporous membranes to improve thin-film boiling performance. At UCLA, I'm an active member of Rocket Project, where I contribute to the design and testing of propulsion systems on the Prometheus team, and I led a team that designed, built, and flew a remote-controlled aircraft from scratch.</p>
+        <p>I recently returned from a study abroad semester at Lund University in Sweden, where I expanded my academic perspective and collaborated within an international engineering environment. Outside of class, I've built a motorbike, refurbished bicycles, and designed and fabricated custom furniture.</p>
+        <p class="mb-0">I'm currently seeking internships where I can contribute to cutting-edge aerospace, propulsion, and mechanical design work.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== PORTFOLIO ========== -->
+<section class="page-section" id="portfolio">
+  <div class="container">
+    <h2>Portfolio</h2>
+    <div class="divider-custom divider-dark">
+      <div class="divider-line"></div>
+      <div class="divider-icon"><i class="fas fa-star"></i></div>
+      <div class="divider-line"></div>
+    </div>
+
+    <div class="row justify-content-center">
+      <!-- ============================================================
+           TO ADD A NEW PROJECT (e.g. new UCLA research):
+           1. Copy one col-md-6 block below and edit the title/image
+           2. Copy its matching <div class="modal"> block near the bottom
+              of the page, give it a new unique id, and update
+              data-bs-target here to match (#yourNewId)
+           ============================================================ -->
+
+      <div class="col-md-6 col-lg-4">
+        <h4 class="portfolio-title">UCSD Research</h4>
+        <a class="portfolio-item" data-bs-toggle="modal" href="#modalResearch" role="button" aria-label="Open UCSD research details">
+          <img src="https://lh3.googleusercontent.com/sitesv/AA5AbUBHasd1kzgAOquZeiuh7hfjcPNQJ4Bda-13NVJI2KNFcc2iacDQ4fQnfXiZDPCulkdx1LF12OSCIwYCxD88iMRg1P8g9DIzVNKwFbq2V2OGJfL-ElrKwCm97SwFnqwu6B7fBW8tV0AGv4GtQMLE6CzKkehi66dsTXKNCEp1eVR9stPgTkcfo7HqlqH4xyjEuAORw6Y1GRLqRyoVZRa07AYlVraHgLbRwmulGRHq=w1280" alt="Hydrogel membrane research">
+          <div class="caption"><i class="fas fa-plus"></i></div>
+        </a>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <h4 class="portfolio-title">Rocket Project</h4>
+        <a class="portfolio-item" data-bs-toggle="modal" href="#modalRocket" role="button" aria-label="Open Rocket Project details">
+          <img src="https://lh3.googleusercontent.com/sitesv/AA5AbUC_MLRCdSnTD0Yz3-pE4yukt77FbwtPQ-oyXigGVuqtqW817kIf7V-b2YQMi1OLNBva0o7XF0YL2j3WwTF8t1fwWrN-gS0ITer0mqj_utcCQ7dH2BxNPHoakmo_A2XDIHFLYY5jLcJwHsD0wbX1xbJiQFyfgyC-SYSV9WPIA3bYj11N7RNNY_1dOTr0CzFcaY0CAO7__utZUmBrkgPCCLZJCR56iW_q373eAMgtoL4=w1280" alt="Rocket Project propulsion hardware">
+          <div class="caption"><i class="fas fa-plus"></i></div>
+        </a>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <h4 class="portfolio-title">RC Aircraft</h4>
+        <a class="portfolio-item" data-bs-toggle="modal" href="#modalPlane" role="button" aria-label="Open RC aircraft details">
+          <img src="https://lh3.googleusercontent.com/sitesv/AA5AbUALKNYRNtKev3OgDmB-QG953GCaF8D2tL_6QEYOMp7mNyUHGNLcfMhKWMo-WGnPIAAAJnTKnlvGvlB0AWNKv6h54saa67eVaH2je5a--fUST3DMhYDf4BhrZE_UV3Xer4jQevMJ9C48L3eTy7kgGYbqEWZXPP4hpj1xwpPbsE5a_TlD5hs3ZCN0qEZw-yWcGISDNxhj69D-4yPn_l6mUeVx8YpqE5f0n_megyfa=w1280" alt="RC aircraft">
+          <div class="caption"><i class="fas fa-plus"></i></div>
+        </a>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <h4 class="portfolio-title">Engineering Ambassadors</h4>
+        <a class="portfolio-item" data-bs-toggle="modal" href="#modalAmbassador" role="button" aria-label="Open Engineering Ambassadors details">
+          <img src="https://lh3.googleusercontent.com/sitesv/AA5AbUBxcYQZYa_PRFlu1yuNAQgg78mDnnN12Uso5UydQabNnOOmBFx8-UXazBvvkoZrdg3zM8EdQgyhjvZEEcZBnERVGcawgmarj1te8LOLBZ9s4tYEd_-9EUf6r1KcDHoDuRsqAlAjFSuzMpg3MS9isyKQAKiiPaesG7dQAnT6W9kJAYqMP40inU-NG52xjUnJnTic5Nv_dW7mXDQlWzhFUHgmCrskHQlNs6jrqyxop2k=w1280" alt="UCLA Engineering Ambassadors">
+          <div class="caption"><i class="fas fa-plus"></i></div>
+        </a>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <h4 class="portfolio-title">Personal Projects</h4>
+        <a class="portfolio-item" data-bs-toggle="modal" href="#modalPersonal" role="button" aria-label="Open personal projects details">
+          <img src="https://lh3.googleusercontent.com/sitesv/AA5AbUAoe3if3cl4pTo_BaKJADMZEpDUmljIeWn4h-1Wvn47XVP6xhcPT07Lqf3QPyIHOiAYO_Z02YWZL_V8VSO3j2h4-HBxJ_q1N147A_eJIDs0rwIYYFbjSA-vuTcrc9fVrC7WczcmETOqKKMe94661lEMo_pC9IpDAfyOhZrTL8fUcns-WMO5EZL4q0-c8ZS8fcVwNC3AiI_CvorTNbJvoaHJ-gnUwhkzVFPhZjCUxec=w1280" alt="Personal fabrication projects">
+          <div class="caption"><i class="fas fa-plus"></i></div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== RESUME ========== -->
+<section class="page-section bg-light" id="resume">
+  <div class="container">
+    <h2>Resume</h2>
+    <div class="divider-custom divider-dark">
+      <div class="divider-line"></div>
+      <div class="divider-icon"><i class="fas fa-star"></i></div>
+      <div class="divider-line"></div>
+    </div>
+    <!-- To embed your resume like Noah's site: upload the PDF to your repo as
+         assets/resume.pdf, then un-comment the iframe below and delete the button. -->
+    <!-- <iframe class="resume-frame" src="assets/resume.pdf" title="Kyle Medina resume"></iframe> -->
+    <div class="text-center">
+      <a class="btn btn-primary-custom" href="https://drive.google.com/a/g.ucla.edu/open?id=1OpjvYtVaFVGavbp1h93OuUuN-d7SuF0L" target="_blank" rel="noopener">
+        <i class="fas fa-download me-2"></i>Download Resume (PDF)
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ========== CONTACT ========== -->
+<section class="page-section" id="contact">
+  <div class="container text-center">
+    <h2>Contact Me</h2>
+    <div class="divider-custom divider-dark">
+      <div class="divider-line"></div>
+      <div class="divider-icon"><i class="fas fa-star"></i></div>
+      <div class="divider-line"></div>
+    </div>
+    <h4 class="mb-3" style="color: var(--secondary);">Email</h4>
+    <p><a href="mailto:medinakyle2@gmail.com">medinakyle2@gmail.com</a></p>
+    <h4 class="mt-5 mb-3" style="color: var(--secondary);">Around the Web</h4>
+    <a class="contact-icon" href="http://www.linkedin.com/in/kyle-medina-aerospace-engineer" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+  </div>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<footer>
+  <div class="container">
+    <p class="mb-1"><strong>Kyle Medina</strong> · Los Angeles, CA</p>
+    <p class="small mb-0">© 2026 Kyle Medina</p>
+  </div>
+</footer>
+
+<!-- ================================================================
+     PORTFOLIO MODALS (the pop-up windows, like Noah's site)
+     Each has a carousel — to add more photos to a project, copy a
+     <div class="carousel-item"> block and change the image src.
+     ================================================================ -->
+
+<!-- UCSD Research modal -->
+<div class="modal fade" id="modalResearch" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-centered">
+    <div class="modal-content p-4">
+      <div class="modal-header"><h3 class="modal-title">Hydrogel Membranes for Thin-Film Boiling</h3></div>
+      <div class="modal-body">
+        <div id="researchCarousel" class="carousel slide mb-4" data-bs-ride="false">
+          <div class="carousel-inner">
+            <div class="carousel-item active"><img src="https://lh3.googleusercontent.com/sitesv/AA5AbUBHasd1kzgAOquZeiuh7hfjcPNQJ4Bda-13NVJI2KNFcc2iacDQ4fQnfXiZDPCulkdx1LF12OSCIwYCxD88iMRg1P8g9DIzVNKwFbq2V2OGJfL-ElrKwCm97SwFnqwu6B7fBW8tV0AGv4GtQMLE6CzKkehi66dsTXKNCEp1eVR9stPgTkcfo7HqlqH4xyjEuAORw6Y1GRLqRyoVZRa07AYlVraHgLbRwmulGRHq=w1280" alt="Hydrogel membrane under fabrication"></div>
+            <!-- Add more slides here:
+            <div class="carousel-item"><img src="assets/research2.jpg" alt=""></div> -->
+          </div>
+        </div>
+        <p>As an undergraduate researcher in the Cai Group at UC San Diego, I worked on improving thin-film boiling performance using hydrogel-coated glass fiber membranes. I was responsible for developing a repeatable fabrication process that bonded hydrogel to the membrane without infiltrating the porous fibers — a key requirement for maintaining coating structure and performance. Through iterative trials, I developed a successful method using layered tape borders to control coating thickness, later refined with a doctor blade.</p>
+        <p>I also created the thickness-measurement approach for the project: imaging coated membranes under a microscope alongside a razor blade of known thickness and converting pixel distances into real dimensions, giving the group a reliable way to quantify coating uniformity and validate the fabrication process.</p>
+        <div class="text-center mt-4"><button class="btn btn-primary-custom btn-close-window" data-bs-dismiss="modal"><i class="fas fa-xmark me-2"></i>Close Window</button></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Rocket Project modal -->
+<div class="modal fade" id="modalRocket" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-centered">
+    <div class="modal-content p-4">
+      <div class="modal-header"><h3 class="modal-title">Rocket Project at UCLA — Prometheus</h3></div>
+      <div class="modal-body">
+        <div id="rocketCarousel" class="carousel slide mb-4" data-bs-ride="false">
+          <div class="carousel-inner">
+            <div class="carousel-item active"><img src="https://lh3.googleusercontent.com/sitesv/AA5AbUC_MLRCdSnTD0Yz3-pE4yukt77FbwtPQ-oyXigGVuqtqW817kIf7V-b2YQMi1OLNBva0o7XF0YL2j3WwTF8t1fwWrN-gS0ITer0mqj_utcCQ7dH2BxNPHoakmo_A2XDIHFLYY5jLcJwHsD0wbX1xbJiQFyfgyC-SYSV9WPIA3bYj11N7RNNY_1dOTr0CzFcaY0CAO7__utZUmBrkgPCCLZJCR56iW_q373eAMgtoL4=w1280" alt="Propulsion test hardware"></div>
+          </div>
+        </div>
+        <p>On the engine team, I work on the design and development of the engine nozzle through trade studies, CAD modeling, and system-level coordination with the rest of the propulsion assembly — balancing performance, manufacturability, and cost while ensuring proper fit and interface compatibility with the injector, chamber, and ignitor systems.</p>
+        <p>Previously, I helped design, fabricate, and test propulsion hardware including static fire test stands and bottle inverters, performed water-flow tests on engine injectors, and conducted hydrostatic tests on engine chambers to verify structural performance before higher-risk testing.</p>
+        <div class="text-center mt-4"><button class="btn btn-primary-custom btn-close-window" data-bs-dismiss="modal"><i class="fas fa-xmark me-2"></i>Close Window</button></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- RC Aircraft modal -->
+<div class="modal fade" id="modalPlane" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-centered">
+    <div class="modal-content p-4">
+      <div class="modal-header"><h3 class="modal-title">RC Aircraft — Design, Build, Fly</h3></div>
+      <div class="modal-body">
+        <div id="planeCarousel" class="carousel slide mb-4" data-bs-ride="false">
+          <div class="carousel-inner">
+            <div class="carousel-item active"><img src="https://lh3.googleusercontent.com/sitesv/AA5AbUALKNYRNtKev3OgDmB-QG953GCaF8D2tL_6QEYOMp7mNyUHGNLcfMhKWMo-WGnPIAAAJnTKnlvGvlB0AWNKv6h54saa67eVaH2je5a--fUST3DMhYDf4BhrZE_UV3Xer4jQevMJ9C48L3eTy7kgGYbqEWZXPP4hpj1xwpPbsE5a_TlD5hs3ZCN0qEZw-yWcGISDNxhj69D-4yPn_l6mUeVx8YpqE5f0n_megyfa=w1280" alt="RC aircraft built from scratch"></div>
+          </div>
+        </div>
+        <p>I led a four-person team through the full design-build-test cycle of an RC airplane built from scratch to meet mission requirements. Starting from a CAD-based design, we manufactured the aircraft using foam structures, 3D-printed components, and integrated electrical and propulsion systems. I used CAD and XFLR5 to analyze center of gravity and wing placement to ensure stable flight.</p>
+        <p>In final testing, our aircraft achieved a self-propelled takeoff, sustained a 2.5-minute flight, exceeded 80 ft/s in straight-line speed, performed two barrel rolls, and landed safely — the only team in the course to achieve both powered takeoff and sustained flight.</p>
+        <p><a href="https://docs.google.com/presentation/d/1Q93NzbzTZ0dH-oNmzIfUwsh01BW2UybnvdH1IfF-4kg/present" target="_blank" rel="noopener">View the flight presentation ↗</a></p>
+        <div class="text-center mt-4"><button class="btn btn-primary-custom btn-close-window" data-bs-dismiss="modal"><i class="fas fa-xmark me-2"></i>Close Window</button></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Engineering Ambassadors modal -->
+<div class="modal fade" id="modalAmbassador" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-centered">
+    <div class="modal-content p-4">
+      <div class="modal-header"><h3 class="modal-title">UCLA Engineering Ambassadors</h3></div>
+      <div class="modal-body">
+        <div id="ambassadorCarousel" class="carousel slide mb-4" data-bs-ride="false">
+          <div class="carousel-inner">
+            <div class="carousel-item active"><img src="https://lh3.googleusercontent.com/sitesv/AA5AbUBxcYQZYa_PRFlu1yuNAQgg78mDnnN12Uso5UydQabNnOOmBFx8-UXazBvvkoZrdg3zM8EdQgyhjvZEEcZBnERVGcawgmarj1te8LOLBZ9s4tYEd_-9EUf6r1KcDHoDuRsqAlAjFSuzMpg3MS9isyKQAKiiPaesG7dQAnT6W9kJAYqMP40inU-NG52xjUnJnTic5Nv_dW7mXDQlWzhFUHgmCrskHQlNs6jrqyxop2k=w1280" alt="Engineering ambassador events"></div>
+          </div>
+        </div>
+        <p>I represent the UCLA Samueli School of Engineering by leading campus tours and outreach events for prospective students, alumni, and industry partners. To help inspire the next generation of engineers, I deliver aerospace engineering presentations to engineering courses at Santa Monica College, and I coordinate logistics and student organization for undergraduate and graduate engineering commencement ceremonies.</p>
+        <div class="text-center mt-4"><button class="btn btn-primary-custom btn-close-window" data-bs-dismiss="modal"><i class="fas fa-xmark me-2"></i>Close Window</button></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Personal Projects modal -->
+<div class="modal fade" id="modalPersonal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-centered">
+    <div class="modal-content p-4">
+      <div class="modal-header"><h3 class="modal-title">Personal Projects</h3></div>
+      <div class="modal-body">
+        <div id="personalCarousel" class="carousel slide mb-4" data-bs-ride="false">
+          <div class="carousel-inner">
+            <div class="carousel-item active"><img src="https://lh3.googleusercontent.com/sitesv/AA5AbUAoe3if3cl4pTo_BaKJADMZEpDUmljIeWn4h-1Wvn47XVP6xhcPT07Lqf3QPyIHOiAYO_Z02YWZL_V8VSO3j2h4-HBxJ_q1N147A_eJIDs0rwIYYFbjSA-vuTcrc9fVrC7WczcmETOqKKMe94661lEMo_pC9IpDAfyOhZrTL8fUcns-WMO5EZL4q0-c8ZS8fcVwNC3AiI_CvorTNbJvoaHJ-gnUwhkzVFPhZjCUxec=w1280" alt="Mechanical and fabrication projects"></div>
+          </div>
+        </div>
+        <p><strong>Mechanical maintenance:</strong> comprehensive automotive and motorcycle repairs — brake system overhauls, tire replacement, and carburetor tuning — to master complex mechanical assemblies.</p>
+        <p><strong>Furniture design & fabrication:</strong> designing and constructing custom furniture pieces with a focus on material selection, joinery, and structural stability.</p>
+        <p>These projects bridge theoretical engineering and practical application, sharpening my diagnostic abilities and spatial reasoning.</p>
+        <div class="text-center mt-4"><button class="btn btn-primary-custom btn-close-window" data-bs-dismiss="modal"><i class="fas fa-xmark me-2"></i>Close Window</button></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
