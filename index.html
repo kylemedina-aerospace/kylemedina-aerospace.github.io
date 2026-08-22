@@ -93,7 +93,10 @@
   .modal-body p { color: #6c757d; }
   .btn-close-window { background: var(--secondary); border: none; }
   .btn-close-window:hover { background: var(--primary); }
-  .carousel-inner img { width: 100%; border-radius: 0.25rem; }
+  .carousel-inner img, .carousel-inner video {
+    width: 100%; max-height: 55vh; object-fit: contain;
+    background: #f1f3f5; border-radius: 0.25rem;
+  }
   .carousel-indicators [data-bs-target] { background-color: var(--secondary); }
   .carousel-control-prev-icon, .carousel-control-next-icon { filter: invert(1) grayscale(100); }
 
@@ -205,6 +208,22 @@
       </div>
 
       <div class="col-md-6 col-lg-4">
+        <h4 class="portfolio-title">TEMP Lab at UCSD</h4>
+        <a class="portfolio-item" data-bs-toggle="modal" href="#modalTempLab" role="button" aria-label="Open TEMP Lab details">
+          <img src="temp-lab.jpg" alt="Syringe pump and coating drum in the TEMP Lab">
+          <div class="caption"><i class="fas fa-plus"></i></div>
+        </a>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <h4 class="portfolio-title">Thermal Science Laboratory for Semiconductor Packaging &amp; Integration</h4>
+        <a class="portfolio-item" data-bs-toggle="modal" href="#modalThermalLab" role="button" aria-label="Open Thermal Science Laboratory details">
+          <img src="thermal-lab-bench.jpg" alt="Experimental test bench in the Thermal Science Laboratory">
+          <div class="caption"><i class="fas fa-plus"></i></div>
+        </a>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
         <h4 class="portfolio-title">Rocket Project</h4>
         <a class="portfolio-item" data-bs-toggle="modal" href="#modalRocket" role="button" aria-label="Open Rocket Project details">
           <img src="rocket-static-fire.jpg" alt="Rocket Project propulsion hardware">
@@ -289,16 +308,27 @@
 
 <!-- UCSD Research modal -->
 <div class="modal fade" id="modalResearch" tabindex="-1" aria-hidden="true">
-  <div class="modal-dialog modal-xl modal-dialog-centered">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
     <div class="modal-content p-4">
       <div class="modal-header"><h3 class="modal-title">Cai Group at UCSD</h3></div>
       <div class="modal-body">
         <div id="researchCarousel" class="carousel slide mb-4" data-bs-ride="false">
-          <div class="carousel-inner">
-            <div class="carousel-item active"><img src="research.jpg" alt="Hydrogel membrane under fabrication"></div>
-            <!-- Add more slides here:
-            <div class="carousel-item"><img src="research2.jpg" alt=""></div> -->
+          <div class="carousel-indicators">
+            <button type="button" data-bs-target="#researchCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#researchCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#researchCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
           </div>
+          <div class="carousel-inner">
+            <div class="carousel-item active"><img src="research.jpg" alt="Preparing hydrogel samples in the vacuum oven"></div>
+            <div class="carousel-item"><img src="cai-oven.jpg" alt="Thin-film boiling test setup"></div>
+            <div class="carousel-item"><img src="cai-microscope.jpg" alt="Zeiss microscope used for thickness measurement"></div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#researchCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span><span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#researchCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span><span class="visually-hidden">Next</span>
+          </button>
         </div>
         <p>As an undergraduate research assistant at UC San Diego, I worked on research aimed at improving thin-film boiling performance using hydrogel-coated glass fiber membranes. I was specifically responsible for developing a repeatable fabrication process that enabled the hydrogel to bond to the glass fiber membrane without infiltrating the porous fibers, a key requirement for maintaining the desired coating structure and performance. Through iterative fabrication trials, I developed the successful method by using layered tape borders to define and control coating thickness, which was later refined further by incorporating a doctor blade into the process. I also created the testing approach used to measure hydrogel thickness by imaging the coated membrane under a microscope alongside a razor blade of known thickness and using imaging software to convert pixel distances into real dimensions. This allowed coating thickness and uniformity to be quantified and gave us a reliable way to validate the fabrication process. This work involved hands-on materials fabrication, process refinement, and experimental characterization, and strengthened my ability to solve open-ended engineering problems through testing and iteration.</p>
         <div class="text-center mt-4"><button class="btn btn-primary-custom btn-close-window" data-bs-dismiss="modal"><i class="fas fa-xmark me-2"></i>Close Window</button></div>
@@ -307,19 +337,76 @@
   </div>
 </div>
 
+<!-- TEMP Lab modal -->
+<div class="modal fade" id="modalTempLab" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content p-4">
+      <div class="modal-header"><h3 class="modal-title">TEMP Lab at UCSD</h3></div>
+      <div class="modal-body">
+        <div id="tempLabCarousel" class="carousel slide mb-4" data-bs-ride="false">
+          <div class="carousel-indicators">
+            <button type="button" data-bs-target="#tempLabCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          </div>
+          <div class="carousel-inner">
+            <div class="carousel-item active"><img src="temp-lab.jpg" alt="Syringe pump and coating drum setup"></div>
+          </div>
+
+        </div>
+        <p><em>Full description coming soon.</em></p>
+        <div class="text-center mt-4"><button class="btn btn-primary-custom btn-close-window" data-bs-dismiss="modal"><i class="fas fa-xmark me-2"></i>Close Window</button></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Thermal Science Laboratory modal -->
+<div class="modal fade" id="modalThermalLab" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content p-4">
+      <div class="modal-header"><h3 class="modal-title">Thermal Science Laboratory for Semiconductor Packaging &amp; Integration</h3></div>
+      <div class="modal-body">
+        <div id="thermalLabCarousel" class="carousel slide mb-4" data-bs-ride="false">
+          <div class="carousel-indicators">
+            <button type="button" data-bs-target="#thermalLabCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#thermalLabCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          </div>
+          <div class="carousel-inner">
+            <div class="carousel-item active"><img src="thermal-lab-bench.jpg" alt="Experimental test bench with instrumentation"></div>
+            <div class="carousel-item"><img src="thermal-lab-part.jpg" alt="3D-printed test fixture"></div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#thermalLabCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span><span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#thermalLabCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span><span class="visually-hidden">Next</span>
+          </button>
+        </div>
+        <p><em>Full description coming soon.</em></p>
+        <div class="text-center mt-4"><button class="btn btn-primary-custom btn-close-window" data-bs-dismiss="modal"><i class="fas fa-xmark me-2"></i>Close Window</button></div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- Rocket Project modal -->
 <div class="modal fade" id="modalRocket" tabindex="-1" aria-hidden="true">
-  <div class="modal-dialog modal-xl modal-dialog-centered">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
     <div class="modal-content p-4">
       <div class="modal-header"><h3 class="modal-title">Engine - Nozzle Lead &amp; Test Engineer — Rocket Project at UCLA</h3></div>
       <div class="modal-body">
         <div id="rocketCarousel" class="carousel slide mb-4" data-bs-ride="false">
           <div class="carousel-indicators">
-            <button type="button" data-bs-target="#rocketCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Static fire test"></button>
-            <button type="button" data-bs-target="#rocketCarousel" data-bs-slide-to="1" aria-label="Nozzle CAD model"></button>
+            <button type="button" data-bs-target="#rocketCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#rocketCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#rocketCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            <button type="button" data-bs-target="#rocketCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
+            <button type="button" data-bs-target="#rocketCarousel" data-bs-slide-to="4" aria-label="Slide 5"></button>
           </div>
           <div class="carousel-inner">
             <div class="carousel-item active"><img src="rocket-static-fire.jpg" alt="Static fire test at the test range"></div>
+            <div class="carousel-item"><video controls playsinline preload="metadata" src="rocket-test.mp4"></video></div>
+            <div class="carousel-item"><img src="rocket-hydrostatic.jpg" alt="Hydrostatic test setup"></div>
+            <div class="carousel-item"><img src="rocket-ignition.jpg" alt="Night ignition test outside the makerspace"></div>
             <div class="carousel-item"><img src="nozzle-cad.jpg" alt="CAD cross-section of the engine nozzle"></div>
           </div>
           <button class="carousel-control-prev" type="button" data-bs-target="#rocketCarousel" data-bs-slide="prev">
@@ -339,14 +426,29 @@
 
 <!-- RC Aircraft modal -->
 <div class="modal fade" id="modalPlane" tabindex="-1" aria-hidden="true">
-  <div class="modal-dialog modal-xl modal-dialog-centered">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
     <div class="modal-content p-4">
       <div class="modal-header"><h3 class="modal-title">RC Plane</h3></div>
       <div class="modal-body">
         <div id="planeCarousel" class="carousel slide mb-4" data-bs-ride="false">
+          <div class="carousel-indicators">
+            <button type="button" data-bs-target="#planeCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#planeCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#planeCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            <button type="button" data-bs-target="#planeCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
+          </div>
           <div class="carousel-inner">
             <div class="carousel-item active"><img src="rc-plane.jpg" alt="RC aircraft built from scratch"></div>
+            <div class="carousel-item"><video controls playsinline preload="metadata" src="rc-flight.mp4"></video></div>
+            <div class="carousel-item"><img src="rc-field.jpg" alt="The finished aircraft on the field"></div>
+            <div class="carousel-item"><img src="rc-build.jpg" alt="Building the aircraft in the makerspace"></div>
           </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#planeCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span><span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#planeCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span><span class="visually-hidden">Next</span>
+          </button>
         </div>
         <p>As part of my engineering aircraft design course, I led a 4-person team in the design, fabrication, and testing of an RC airplane built entirely from scratch to meet specific mission requirements. Beginning with a CAD-based design, we manufactured the aircraft using foam structures, 3D-printed components, and integrated electrical and propulsion systems. I used CAD and XFLR5 to analyze center of gravity, center of mass, and wing placement, helping ensure stable flight and inform key configuration decisions throughout the design process. I also helped lead the project through the full design-build-test cycle, including fabrication, assembly, troubleshooting, and flight preparation. In final testing, our aircraft achieved a self-propelled takeoff, sustained a 2.5-minute flight, exceeded 80 ft/s in straight-line speed, performed two barrel rolls, and landed safely, successfully meeting all mission requirements. Our team was the only group in the course to achieve both powered takeoff and sustained flight.</p>
         <div class="text-center mt-4"><button class="btn btn-primary-custom btn-close-window" data-bs-dismiss="modal"><i class="fas fa-xmark me-2"></i>Close Window</button></div>
@@ -357,14 +459,27 @@
 
 <!-- Engineering Ambassadors modal -->
 <div class="modal fade" id="modalAmbassador" tabindex="-1" aria-hidden="true">
-  <div class="modal-dialog modal-xl modal-dialog-centered">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
     <div class="modal-content p-4">
       <div class="modal-header"><h3 class="modal-title">UCLA Engineering Ambassadors</h3></div>
       <div class="modal-body">
         <div id="ambassadorCarousel" class="carousel slide mb-4" data-bs-ride="false">
-          <div class="carousel-inner">
-            <div class="carousel-item active"><img src="ambassadors.jpg" alt="Engineering ambassador events"></div>
+          <div class="carousel-indicators">
+            <button type="button" data-bs-target="#ambassadorCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#ambassadorCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#ambassadorCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
           </div>
+          <div class="carousel-inner">
+            <div class="carousel-item active"><img src="ambassadors.jpg" alt="Engineering Ambassadors outreach tent"></div>
+            <div class="carousel-item"><img src="ambassadors-commencement.jpg" alt="Engineering commencement at Pauley Pavilion"></div>
+            <div class="carousel-item"><img src="ambassadors-group.jpg" alt="Ambassadors outside Boelter Hall"></div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#ambassadorCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span><span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#ambassadorCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span><span class="visually-hidden">Next</span>
+          </button>
         </div>
         <p>As an ambassador, I represent the UCLA Samueli School of Engineering by leading campus tours and outreach events for prospective students, alumni, and industry partners. To help inspire the next generation of engineers, I deliver aerospace engineering presentations to engineering courses at Santa Monica College. Additionally, I coordinate logistics and student organization for undergraduate and graduate (Masters/PhD) engineering commencement ceremonies. By collaborating with faculty, staff, and donors to promote STEM engagement, I continually strengthen my leadership, communication, and event management skills.</p>
         <div class="text-center mt-4"><button class="btn btn-primary-custom btn-close-window" data-bs-dismiss="modal"><i class="fas fa-xmark me-2"></i>Close Window</button></div>
@@ -375,14 +490,29 @@
 
 <!-- Personal Projects modal -->
 <div class="modal fade" id="modalPersonal" tabindex="-1" aria-hidden="true">
-  <div class="modal-dialog modal-xl modal-dialog-centered">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
     <div class="modal-content p-4">
       <div class="modal-header"><h3 class="modal-title">Personal Projects</h3></div>
       <div class="modal-body">
         <div id="personalCarousel" class="carousel slide mb-4" data-bs-ride="false">
-          <div class="carousel-inner">
-            <div class="carousel-item active"><img src="personal-projects.jpg" alt="Mechanical and fabrication projects"></div>
+          <div class="carousel-indicators">
+            <button type="button" data-bs-target="#personalCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#personalCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#personalCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            <button type="button" data-bs-target="#personalCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
           </div>
+          <div class="carousel-inner">
+            <div class="carousel-item active"><img src="personal-projects.jpg" alt="Vehicle maintenance work"></div>
+            <div class="carousel-item"><img src="motorcycles.jpg" alt="Yamaha dirt bikes in the garage"></div>
+            <div class="carousel-item"><img src="furniture.jpg" alt="Custom workbench build"></div>
+            <div class="carousel-item"><img src="surfboard-rack.jpg" alt="Handmade surfboard rack"></div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#personalCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span><span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#personalCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span><span class="visually-hidden">Next</span>
+          </button>
         </div>
         <p><strong>Mechanical Maintenance:</strong> Perform comprehensive automotive and motorcycle repairs, including brake system overhauls, tire replacement, and carburetor tuning, to master complex mechanical assemblies.</p>
         <p><strong>Furniture Design &amp; Fabrication:</strong> Design and construct custom furniture pieces, focusing on material selection, joinery, and structural stability.</p>
