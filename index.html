@@ -314,8 +314,8 @@
           </div>
           <div class="carousel-inner">
             <div class="carousel-item active"><img src="research.jpg" alt="Preparing hydrogel samples in the vacuum oven"></div>
-            <div class="carousel-item"><img src="cai-oven.jpg" alt="Thin-film boiling test setup"></div>
-            <div class="carousel-item"><img src="cai-microscope.jpg" alt="Zeiss microscope used for thickness measurement"></div>
+                        <div class="carousel-item"><img src="cai-microscope.jpg" alt="Zeiss microscope used for thickness measurement"></div>
+            <div class="carousel-item"><img src="cai-tape-borders.jpg" alt="Tape-border method for controlling hydrogel coating thickness"></div>
           </div>
           <button class="carousel-control-prev" type="button" data-bs-target="#researchCarousel" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span><span class="visually-hidden">Previous</span>
@@ -340,11 +340,22 @@
         <div id="tempLabCarousel" class="carousel slide mb-4" data-bs-ride="false">
           <div class="carousel-indicators">
             <button type="button" data-bs-target="#tempLabCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#tempLabCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#tempLabCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            <button type="button" data-bs-target="#tempLabCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
           </div>
           <div class="carousel-inner">
             <div class="carousel-item active"><img src="temp-lab.jpg" alt="Syringe pump and coating drum setup"></div>
+            <div class="carousel-item"><img src="temp-permeability.jpg" alt="Pressure-driven permeability test setup"></div>
+            <div class="carousel-item"><img src="temp-sample-prep.jpg" alt="Preparing samples on the stir plate"></div>
+            <div class="carousel-item"><img src="temp-lab-team.jpg" alt="In the lab at UC San Diego"></div>
           </div>
-
+          <button class="carousel-control-prev" type="button" data-bs-target="#tempLabCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span><span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#tempLabCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span><span class="visually-hidden">Next</span>
+          </button>
         </div>
         <p>Returning to UC San Diego for a second summer, I moved from fabrication into characterization, measuring how readily liquid moves through the porous membranes used in the lab’s evaporative cooling work. Permeability and effective pore size set how much liquid a wick can deliver to a heated surface, which in turn caps how much heat the device can remove, so these properties have to be measured accurately before a membrane is worth building a cooling device around. I tested copper mesh, copper-coated glass fiber, and quartz membranes across roughly forty pressure-driven flow trials, using Darcy’s law to extract permeability from the pressure/flow relationship, converting to an equivalent hydraulic pore diameter, and predicting capillary performance from the Young-Laplace relation.</p>
         <p>To handle the analysis consistently, I built a MATLAB pipeline that fit each sample’s data, propagated measurement uncertainty through the fits using Monte Carlo resampling rather than reporting a single best-fit number, and automatically flagged data that violated the assumptions behind the method. It checked that flow stayed linear with pressure, that the fit passed sensibly through the origin, and that the pore-scale Reynolds number stayed low enough for Darcy’s law to apply.</p>
@@ -367,13 +378,11 @@
             <button type="button" data-bs-target="#thermalLabCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
             <button type="button" data-bs-target="#thermalLabCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
             <button type="button" data-bs-target="#thermalLabCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
-            <button type="button" data-bs-target="#thermalLabCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
           </div>
           <div class="carousel-inner">
             <div class="carousel-item active"><img src="thermal-lab-cad-wireframe.jpg" alt="CAD wireframe of the test fixture"></div>
             <div class="carousel-item"><img src="thermal-lab-cad-section.jpg" alt="CAD cross-section of the test fixture"></div>
-            <div class="carousel-item"><img src="thermal-lab-part.jpg" alt="3D-printed test fixture"></div>
-            <div class="carousel-item"><img src="thermal-lab-bench.jpg" alt="Experimental test bench with instrumentation"></div>
+            <div class="carousel-item"><img src="thermal-lab-part.jpg" alt="Membrane bonded to the 3D-printed manifold"></div>
           </div>
           <button class="carousel-control-prev" type="button" data-bs-target="#thermalLabCarousel" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span><span class="visually-hidden">Previous</span>
